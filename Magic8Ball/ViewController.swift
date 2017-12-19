@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     }
     
     func intimidateUser() {
+        
         UIView.animate(withDuration: 2,
                        delay: 0,
                        options: .curveLinear,
@@ -65,31 +66,43 @@ class ViewController: UIViewController {
     func generateAnswers() {
         let answer = arc4random_uniform(7)
         
-        switch answer {
-        case 0:
-            self.textLabel.text = "Most Certainly"
-            break
-        case 1:
-            self.textLabel.text = "Not too keen on that one"
-            break
-        case 2:
-            self.textLabel.text = "It's possible, but tread with care..."
-            break
-        case 3:
-            self.textLabel.text = "Don't do it"
-            break
-        case 4:
-            self.textLabel.text = "Absolutely not..."
-            break
-        case 5:
-            self.textLabel.text = "HAHAHA... Yes..."
-            break
-        case 6:
-            self.textLabel.text = "For now... No..."
-            break
-        default:
-            break
-        }
+        UIView.animate(withDuration: 7,
+                       delay: 0,
+                       options: .curveLinear,
+                       animations: {
+                        
+                        self.textLabel.alpha = 1
+                        switch answer {
+                        case 0:
+                            self.textLabel.text = "Most Certainly"
+                            break
+                        case 1:
+                            self.textLabel.text = "Not too keen on that one"
+                            break
+                        case 2:
+                            self.textLabel.text = "It's possible, but tread with care..."
+                            break
+                        case 3:
+                            self.textLabel.text = "Don't do it"
+                            break
+                        case 4:
+                            self.textLabel.text = "Absolutely not..."
+                            break
+                        case 5:
+                            self.textLabel.text = "HAHAHA... Yes..."
+                            break
+                        case 6:
+                            self.textLabel.text = "For now... No..."
+                            break
+                        default:
+                            break
+                        }
+                        
+                        self.textLabel.alpha = 0
+        },
+                       completion: nil)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
